@@ -1,5 +1,6 @@
 package com.portfolio.alegodoy.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.sun.istack.NotNull;
 import lombok.Getter;
 import lombok.Setter;
@@ -33,6 +34,11 @@ public class Experiencia {
     @NotNull
     @Column(columnDefinition = "TINYINT(1)")
     private boolean tipo;
+
+    @JsonBackReference
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "idPersona", nullable = false)
+    private Persona persona;
 
     public Experiencia() {
     }

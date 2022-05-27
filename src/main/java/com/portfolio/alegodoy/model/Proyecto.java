@@ -1,13 +1,11 @@
 package com.portfolio.alegodoy.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.sun.istack.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.Size;
 
 @Getter @Setter
@@ -37,6 +35,11 @@ public class Proyecto {
     @NotNull
     @Size(min = 3, max = 250, message = "no cumple con la longitud")
     private String link;
+
+    @JsonBackReference
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "idPersona", nullable = false)
+    private Persona persona;
 
     public Proyecto() {
     }

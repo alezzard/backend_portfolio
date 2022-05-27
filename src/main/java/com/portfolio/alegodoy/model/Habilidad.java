@@ -1,5 +1,6 @@
 package com.portfolio.alegodoy.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.sun.istack.NotNull;
 import lombok.Getter;
 import lombok.Setter;
@@ -22,6 +23,11 @@ public class Habilidad {
     @NotNull @Column(columnDefinition = "INT")
     @Size(min = 1, max = 3, message = "no cumple con la longitud")
     private int porcentaje;
+
+    @JsonBackReference
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "idPersona", nullable = false)
+    private Persona persona;
 
     public Habilidad() {
     }

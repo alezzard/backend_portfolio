@@ -4,11 +4,9 @@ import com.sun.istack.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 @Getter @Setter
 @Entity
@@ -16,7 +14,7 @@ public class Persona {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long idPersona;
 
     @NotNull
     @Size(min = 3, max = 45, message = "no cumple con la longitud")
@@ -51,6 +49,15 @@ public class Persona {
     @Size(max = 250, message = "no cumple con la longitud")
     private String imgBanner;
 
+    //listas de relaciones
+    @OneToMany(mappedBy = "persona",fetch = FetchType.LAZY)
+    private List<Experiencia> listaExperiencias;
+
+    @OneToMany(mappedBy = "persona",fetch = FetchType.LAZY)
+    private List<Habilidad> listaHabilidades;
+
+    @OneToMany(mappedBy = "persona",fetch = FetchType.LAZY)
+    private List<Proyecto> listaProyectos;
 
     public Persona() {
     }
