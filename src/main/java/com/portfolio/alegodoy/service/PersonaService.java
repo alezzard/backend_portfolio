@@ -28,14 +28,19 @@ public class PersonaService implements IPersonaService{
     }
 
     @Override
-    public Persona edit(Long id, String nombre, String apellido, String titulo,
-                        String descripcion, String imgPerfil) {
+    public Persona edit(Long id,String nombre, String apellido, String titulo,
+                        String descripcion, String imgPerfil, String linkedin,
+                        String instagram, String github, String imgBanner) {
         Persona persona = iPersonaRepository.findById(id).orElse(null);
         persona.setNombre(nombre);
         persona.setApellido(apellido);
         persona.setTitulo(titulo);
         persona.setDescripcion(descripcion);
         persona.setImgPerfil(imgPerfil);
+        persona.setLinkedin(linkedin);
+        persona.setInstagram(instagram);
+        persona.setGithub(github);
+        persona.setImgBanner(imgBanner);
         return iPersonaRepository.save(persona);
     }
 }

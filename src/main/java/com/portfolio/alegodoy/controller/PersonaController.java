@@ -29,10 +29,12 @@ public class PersonaController {
     }
 
     @PutMapping("/editar/{id}")
-    public Persona editarPersona(@PathVariable Long id,@RequestParam String nombre,
-                                @RequestParam String apellido,@RequestParam String titulo,
-                                @RequestParam String descripcion,@RequestParam String imgPerfil) {
-        return iPersonaService.edit(id, nombre, apellido, titulo, descripcion, imgPerfil);
+    public Persona editarPersona(@PathVariable Long id,@RequestParam String nombre,@RequestParam String apellido,
+                                 @RequestParam String titulo,@RequestParam String descripcion,
+                                 @RequestParam String imgPerfil,@RequestParam String linkedin,
+                                 @RequestParam String instagram,@RequestParam String github,
+                                 @RequestParam String imgBanner) {
+        return iPersonaService.edit(id, nombre, apellido, titulo, descripcion, imgPerfil, linkedin, instagram, github, imgBanner);
     }
 
 }
