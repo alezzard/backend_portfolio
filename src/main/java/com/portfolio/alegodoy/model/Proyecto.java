@@ -44,11 +44,12 @@ public class Proyecto {
     public Proyecto() {
     }
 
-    public Proyecto(String nombre, String fecha, String descripcion, String imgProyecto, String link){
+    public Proyecto(String nombre, String fecha, String descripcion, String imgProyecto, String link, Persona persona){
         this.nombre = nombre;
         this.fecha = fecha;
         this.descripcion = descripcion;
         this.imgProyecto = imgProyecto;
         this.link = link;
+        this.persona = persona;
     }
 }

@@ -28,12 +28,12 @@ public class Experiencia {
     @Size(min = 3, max = 250, message = "no cumple con la longitud")
     private String descripcion;
 
-    @Size(min = 3, max = 250, message = "no cumple con la longitud")
+    @Size(max = 250, message = "no cumple con la longitud")
     private String imgLogo;
 
     @NotNull
     @Column(columnDefinition = "TINYINT(1)")
-    private boolean tipo;
+    private boolean tipo;//1:expLab // 2:expAcad
 
     @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
@@ -43,11 +43,12 @@ public class Experiencia {
     public Experiencia() {
     }
 
-    public Experiencia(String titulo, String periodo, String descripcion, String imgLogo, boolean tipo) {
+    public Experiencia(String titulo, String periodo, String descripcion, String imgLogo, boolean tipo, Persona persona) {
         this.titulo = titulo;
         this.periodo = periodo;
         this.descripcion = descripcion;
         this.imgLogo = imgLogo;
         this.tipo = tipo;
+        this.persona = persona;
     }
 }

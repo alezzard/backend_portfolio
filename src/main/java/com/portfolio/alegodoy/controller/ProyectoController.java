@@ -1,6 +1,7 @@
 package com.portfolio.alegodoy.controller;
 
 import com.portfolio.alegodoy.model.Proyecto;
+import com.portfolio.alegodoy.service.IPersonaService;
 import com.portfolio.alegodoy.service.IProyectoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -14,8 +15,12 @@ public class ProyectoController {
     @Autowired
     private IProyectoService iProyectoService;
 
-    @PostMapping("/crear")
-    public Proyecto crearProyecto(@RequestBody Proyecto proyecto){
+    @Autowired
+    private IPersonaService iPersonaService;
+
+    @PostMapping("/crear/{id}")
+    public Proyecto crearProyecto(@PathVariable Long id,@RequestBody Proyecto proyecto){
+        proyecto.setPersona(iPersonaService.findById(id));
         return iProyectoService.save(proyecto);
     }
 

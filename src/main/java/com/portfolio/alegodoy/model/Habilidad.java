@@ -32,8 +32,9 @@ public class Habilidad {
     public Habilidad() {
     }
 
-    public Habilidad(String nombre, int porcentaje) {
+    public Habilidad(String nombre, int porcentaje, Persona persona) {
         this.nombre = nombre;
         this.porcentaje = porcentaje;
+        this.persona = persona;
     }
 }

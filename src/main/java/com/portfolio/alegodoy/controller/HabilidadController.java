@@ -2,6 +2,7 @@ package com.portfolio.alegodoy.controller;
 
 import com.portfolio.alegodoy.model.Habilidad;
 import com.portfolio.alegodoy.service.IHabilidadService;
+import com.portfolio.alegodoy.service.IPersonaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,8 +15,12 @@ public class HabilidadController {
     @Autowired
     private IHabilidadService iHabilidadService;
 
-    @PostMapping("/crear")
-    public Habilidad crearHabilidad(@RequestBody Habilidad habilidad){
+    @Autowired
+    private IPersonaService iPersonaService;
+
+    @PostMapping("/crear/{id}")
+    public Habilidad crearHabilidad(@PathVariable Long id,@RequestBody Habilidad habilidad){
+        habilidad.setPersona(iPersonaService.findById(id));
         return iHabilidadService.save(habilidad);
     }
 

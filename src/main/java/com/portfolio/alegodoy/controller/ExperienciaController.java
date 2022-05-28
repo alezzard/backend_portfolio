@@ -2,6 +2,7 @@ package com.portfolio.alegodoy.controller;
 
 import com.portfolio.alegodoy.model.Experiencia;
 import com.portfolio.alegodoy.service.IExperienciaService;
+import com.portfolio.alegodoy.service.IPersonaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,8 +16,12 @@ public class ExperienciaController {
     @Autowired
     private IExperienciaService iExperienciaService;
 
-    @PostMapping("/crear")
-    public Experiencia crearExperiencia(@RequestBody Experiencia experiencia){
+    @Autowired
+    private IPersonaService iPersonaService;
+
+    @PostMapping("/crear/{id}")
+    public Experiencia crearExperiencia(@PathVariable Long id,@RequestBody Experiencia experiencia){
+        experiencia.setPersona(iPersonaService.findById(id));
         return iExperienciaService.save(experiencia);
     }
 
