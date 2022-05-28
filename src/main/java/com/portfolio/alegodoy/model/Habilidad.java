@@ -17,12 +17,12 @@ public class Habilidad {
     private Long id;
 
     @NotNull
-    @Size(min = 3, max = 45, message = "no cumple con la longitud")
-    private String nombre;
+    @Size(max = 250, message = "no cumple con la longitud")
+    private String imgLogo;
 
     @NotNull @Column(columnDefinition = "INT")
     @Size(min = 1, max = 3, message = "no cumple con la longitud")
-    private int porcentaje;
+    private String porcentaje;
 
     @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
@@ -32,8 +32,8 @@ public class Habilidad {
     public Habilidad() {
     }
 
-    public Habilidad(String nombre, int porcentaje, Persona persona) {
-        this.nombre = nombre;
+    public Habilidad(String imgLogo, String porcentaje, Persona persona) {
+        this.imgLogo = imgLogo;
         this.porcentaje = porcentaje;
         this.persona = persona;
     }

@@ -15,7 +15,7 @@ public interface IProyectoService {
 
     public String delete(Long id);
 
-    public Proyecto edit(Long id,String nombre, String fecha, String descripcion,
+    public Proyecto edit(Long id,String nombre, String periodo, String descripcion,
                          String imgProyecto, String link);
 
 }

@@ -22,10 +22,10 @@ public class Proyecto {
 
     @NotNull
     @Size(min = 3, max = 25, message = "no cumple con la longitud")
-    private String fecha;
+    private String periodo;
 
     @NotNull
-    @Size(min = 3, max = 250, message = "no cumple con la longitud")
+    @Size(min = 3, max = 350, message = "no cumple con la longitud")
     private String descripcion;
 
     @NotNull
@@ -44,9 +44,9 @@ public class Proyecto {
     public Proyecto() {
     }
 
-    public Proyecto(String nombre, String fecha, String descripcion, String imgProyecto, String link, Persona persona){
+    public Proyecto(String nombre, String periodo, String descripcion, String imgProyecto, String link, Persona persona){
         this.nombre = nombre;
-        this.fecha = fecha;
+        this.periodo = periodo;
         this.descripcion = descripcion;
         this.imgProyecto = imgProyecto;
         this.link = link;

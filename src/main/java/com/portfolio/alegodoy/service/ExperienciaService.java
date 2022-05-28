@@ -19,8 +19,8 @@ public class ExperienciaService implements IExperienciaService{
     }
 
     @Override
-    public List<Experiencia> get() {
-        return iExperienciaRepository.findAll();
+    public List<Experiencia>  fineByTipo(boolean tipo) {
+        return iExperienciaRepository.findByTipo(tipo);
     }
 
     @Override

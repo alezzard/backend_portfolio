@@ -35,10 +35,10 @@ public class HabilidadService implements IHabilidadService{
     }
 
     @Override
-    public Habilidad edit(Long id, String nombre, int porcentaje) {
+    public Habilidad edit(Long id, String imgLogo, String porcentaje) {
         Habilidad habilidad = iHabilidadRepository.findById(id).orElse(null);
 
-        habilidad.setNombre(nombre);
+        habilidad.setImgLogo(imgLogo);
         habilidad.setPorcentaje(porcentaje);
 
         return iHabilidadRepository.save(habilidad);

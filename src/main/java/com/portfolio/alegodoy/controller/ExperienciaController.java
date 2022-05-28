@@ -25,10 +25,14 @@ public class ExperienciaController {
         return iExperienciaService.save(experiencia);
     }
 
-    @GetMapping("/traer")
-    public List<Experiencia> traerExperiencias(){
-        return iExperienciaService.get();
-    }
+    //@GetMapping("/traer")
+    //public List<Experiencia> traerExperiencias(){return iExperienciaService.get();}
+
+    @GetMapping("/traer/laboral")
+    public List<Experiencia> traerExperienciasLaborales(){return iExperienciaService.fineByTipo(true);}
+
+    @GetMapping("/traer/academica")
+    public List<Experiencia> traerExperienciasAcademicas(){return iExperienciaService.fineByTipo(false);}
 
     @GetMapping("/traer/{id}")
     public Experiencia traerExperienciaPorId(@PathVariable Long id){

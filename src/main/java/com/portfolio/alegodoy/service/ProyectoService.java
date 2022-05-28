@@ -34,10 +34,10 @@ public class ProyectoService implements IProyectoService{
     }
 
     @Override
-    public Proyecto edit(Long id, String nombre, String fecha, String descripcion, String imgProyecto, String link){
+    public Proyecto edit(Long id, String nombre, String periodo, String descripcion, String imgProyecto, String link){
         Proyecto proyecto = iProyectoRepository.findById(id).orElse(null);
         proyecto.setNombre(nombre);
-        proyecto.setFecha(fecha);
+        proyecto.setPeriodo(periodo);
         proyecto.setDescripcion(descripcion);
         proyecto.setImgProyecto(imgProyecto);
         proyecto.setLink(link);

@@ -8,7 +8,7 @@ public interface IExperienciaService {
 
     public Experiencia save(Experiencia experiencia);
 
-    public List<Experiencia> get();
+    public List<Experiencia> fineByTipo(boolean tipo);
 
     public Experiencia getById(Long id);
 

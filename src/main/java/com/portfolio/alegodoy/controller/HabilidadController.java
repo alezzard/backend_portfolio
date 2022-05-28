@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/habilidad")
+@CrossOrigin(origins = "http://localhost:4200")
 public class HabilidadController {
 
     @Autowired
@@ -40,7 +41,7 @@ public class HabilidadController {
     }
 
     @PutMapping("/editar/{id}")
-    public Habilidad editarHabilidad(@PathVariable Long id, @RequestParam String nombre, @RequestParam int porcentaje){
-        return iHabilidadService.edit(id,nombre,porcentaje);
+    public Habilidad editarHabilidad(@PathVariable Long id, @RequestParam String imgLogo, @RequestParam String porcentaje){
+        return iHabilidadService.edit(id,imgLogo,porcentaje);
     }
 }
