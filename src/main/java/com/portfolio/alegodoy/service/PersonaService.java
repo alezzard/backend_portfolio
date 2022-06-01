@@ -22,6 +22,11 @@ public class PersonaService implements IPersonaService{
     }
 
     @Override
+    public Persona findByEmail(String email) {
+        return iPersonaRepository.findByEmail(email);
+    }
+
+    @Override
     public String delete(Long id) {
         iPersonaRepository.deleteById(id);
         return "Persona eliminada con éxito!";
@@ -30,7 +35,7 @@ public class PersonaService implements IPersonaService{
     @Override
     public Persona edit(Long id,String nombre, String apellido, String titulo,
                         String descripcion, String imgPerfil, String linkedin,
-                        String instagram, String github, String imgBanner) {
+                        String instagram, String github, String imgBanner, String email, String password) {
         Persona persona = iPersonaRepository.findById(id).orElse(null);
         persona.setNombre(nombre);
         persona.setApellido(apellido);
@@ -41,6 +46,8 @@ public class PersonaService implements IPersonaService{
         persona.setInstagram(instagram);
         persona.setGithub(github);
         persona.setImgBanner(imgBanner);
+        persona.setEmail(email);
+        persona.setPassword(password);
         return iPersonaRepository.save(persona);
     }
 }

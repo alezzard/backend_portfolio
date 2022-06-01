@@ -33,8 +33,10 @@ public class PersonaController {
                                  @RequestParam String titulo,@RequestParam String descripcion,
                                  @RequestParam String imgPerfil,@RequestParam String linkedin,
                                  @RequestParam String instagram,@RequestParam String github,
-                                 @RequestParam String imgBanner) {
-        return iPersonaService.edit(id, nombre, apellido, titulo, descripcion, imgPerfil, linkedin, instagram, github, imgBanner);
+                                 @RequestParam String imgBanner,@RequestParam String userName,
+                                 @RequestParam String password) {
+        return iPersonaService.edit(id, nombre, apellido, titulo, descripcion, imgPerfil, linkedin, instagram, github,
+                                    imgBanner, userName, password);
     }
 
 }

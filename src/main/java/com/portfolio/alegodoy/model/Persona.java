@@ -3,6 +3,7 @@ package com.portfolio.alegodoy.model;
 import com.sun.istack.NotNull;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.validation.annotation.Validated;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
@@ -49,6 +50,17 @@ public class Persona {
     @Size(max = 250, message = "no cumple con la longitud")
     private String imgBanner;
 
+    @NotNull
+    @Size(min = 10, max = 45, message = "no cumple con la longitud")
+    private String email;
+
+//    @NotNull
+    @Size(min = 8, max = 20, message = "no cumple con la longitud")
+    private String password;
+
+    @Transient
+    private String token;
+
     //listas de relaciones
     @OneToMany(mappedBy = "persona",fetch = FetchType.LAZY)
     private List<Experiencia> listaExperiencias;
@@ -63,7 +75,7 @@ public class Persona {
     }
 
     public Persona(String nombre, String apellido, String titulo, String descripcion, String imgPerfil,
-                   String linkedin, String instagram, String github, String imgBanner) {
+                   String linkedin, String instagram, String github, String imgBanner, String email, String password) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.titulo = titulo;
@@ -73,5 +85,12 @@ public class Persona {
         this.instagram = instagram;
         this.github = github;
         this.imgBanner = imgBanner;
+        this.email = email;
+        this.password = password;
+    }
+
+    public Persona(String email, String password) {
+        this.email = email;
+        this.password = password;
     }
 }
