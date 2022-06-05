@@ -25,9 +25,6 @@ public class ExperienciaController {
         return iExperienciaService.save(experiencia);
     }
 
-    //@GetMapping("/traer")
-    //public List<Experiencia> traerExperiencias(){return iExperienciaService.get();}
-
     @GetMapping("/traer/laboral")
     public List<Experiencia> traerExperienciasLaborales(){return iExperienciaService.fineByTipo(true);}
 
@@ -44,7 +41,7 @@ public class ExperienciaController {
         return iExperienciaService.delete(id);
     }
 
-    @DeleteMapping("/editar/{id}")
+    @PutMapping("/editar/{id}")
     public Experiencia editarExperiencia(@PathVariable  Long id,@RequestParam String titulo,@RequestParam String periodo,
                                          @RequestParam String descripcion,@RequestParam String imgLogo,
                                          @RequestParam boolean tipo){

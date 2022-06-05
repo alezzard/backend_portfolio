@@ -26,25 +26,11 @@ public class AlegodoyApplication {
 			http.csrf().disable()
 					.addFilterAfter(new JWTAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class)
 					.authorizeRequests()
-					/*.antMatchers(HttpMethod.GET,"/**").permitAll() ORIGINALES
-					.antMatchers(HttpMethod.POST,"/**").authenticated()
-					.antMatchers(HttpMethod.PUT,"/**").authenticated()
-					.antMatchers(HttpMethod.DELETE,"/**").authenticated();*/
-					.antMatchers(HttpMethod.GET,"/**").permitAll()//PRUEBA
+					.antMatchers(HttpMethod.GET,"/**").permitAll()
 					.antMatchers(HttpMethod.POST,"/login").permitAll()
 					.antMatchers(HttpMethod.POST,"/**").authenticated()
-					.antMatchers(HttpMethod.PUT,"/**").permitAll()
-					.antMatchers(HttpMethod.DELETE,"/**").permitAll();
+					.antMatchers(HttpMethod.PUT,"/**").authenticated()
+					.antMatchers(HttpMethod.DELETE,"/**").authenticated();
 		}
-
-		/*@Override//
-		protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-			// Creamos una cuenta de usuario por default
-			auth.inMemoryAuthentication()
-					.withUser("gabriel.alegodoy92@gmail.com")
-					.password("gabriel.alegodoy92")
-					.roles("ADMIN");
-		}*/
-
 	}
 }
