@@ -37,14 +37,10 @@ public class ExperienciaController {
     }
 
     @DeleteMapping("/borrar/{id}")
-    public String borrarExperiencia(@PathVariable  Long id){
-        return iExperienciaService.delete(id);
-    }
+    public String borrarExperiencia(@PathVariable  Long id){ return iExperienciaService.delete(id);}
 
     @PutMapping("/editar/{id}")
-    public Experiencia editarExperiencia(@PathVariable  Long id,@RequestParam String titulo,@RequestParam String periodo,
-                                         @RequestParam String descripcion,@RequestParam String imgLogo,
-                                         @RequestParam boolean tipo){
-        return iExperienciaService.edit(id,titulo,periodo,descripcion,imgLogo,tipo);
+    public Experiencia editarExperiencia(@PathVariable  Long id,@RequestBody Experiencia experiencia){
+        return iExperienciaService.edit(id,experiencia);
     }
 }

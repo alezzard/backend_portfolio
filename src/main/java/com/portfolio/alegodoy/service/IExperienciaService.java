@@ -14,6 +14,5 @@ public interface IExperienciaService {
 
     public String delete(Long id);
 
-    public Experiencia edit(Long id,String titulo, String periodo, String descripcion,
-                            String imgLogo, boolean tipo);
+    public Experiencia edit(Long id,Experiencia experiencia);
 }

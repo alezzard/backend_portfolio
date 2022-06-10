@@ -30,17 +30,18 @@ public class ProyectoService implements IProyectoService{
 
     @Override
     public String delete(Long id) {
+        iProyectoRepository.deleteById(id);
         return "Proyecto eliminado con éxito! ";
     }
 
     @Override
-    public Proyecto edit(Long id, String nombre, String periodo, String descripcion, String imgProyecto, String link){
-        Proyecto proyecto = iProyectoRepository.findById(id).orElse(null);
-        proyecto.setNombre(nombre);
-        proyecto.setPeriodo(periodo);
-        proyecto.setDescripcion(descripcion);
-        proyecto.setImgProyecto(imgProyecto);
-        proyecto.setLink(link);
-        return proyecto;
+    public Proyecto edit(Long id, Proyecto proyecto){
+        Proyecto newProyecto = iProyectoRepository.findById(id).orElse(null);
+        newProyecto.setNombre(proyecto.getNombre());
+        newProyecto.setPeriodo(proyecto.getPeriodo());
+        newProyecto.setDescripcion(proyecto.getDescripcion());
+        newProyecto.setImgProyecto(proyecto.getImgProyecto());
+        newProyecto.setLink(proyecto.getLink());
+        return newProyecto;
     }
 }

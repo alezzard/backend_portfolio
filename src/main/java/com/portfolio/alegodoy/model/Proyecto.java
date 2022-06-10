@@ -28,12 +28,12 @@ public class Proyecto {
     @Size(min = 3, max = 350, message = "no cumple con la longitud")
     private String descripcion;
 
-    @NotNull
-    @Size(min = 3, max = 250, message = "no cumple con la longitud")
+
+    @Size(max = 250, message = "no cumple con la longitud")
     private String imgProyecto;
 
-    @NotNull
-    @Size(min = 3, max = 250, message = "no cumple con la longitud")
+
+    @Size(max = 250, message = "no cumple con la longitud")
     private String link;
 
     @JsonBackReference

@@ -41,7 +41,7 @@ public class HabilidadController {
     }
 
     @PutMapping("/editar/{id}")
-    public Habilidad editarHabilidad(@PathVariable Long id, @RequestParam String imgLogo, @RequestParam String porcentaje){
-        return iHabilidadService.edit(id,imgLogo,porcentaje);
+    public Habilidad editarHabilidad(@PathVariable Long id, @RequestBody Habilidad habilidad){
+        return iHabilidadService.edit(id, habilidad);
     }
 }

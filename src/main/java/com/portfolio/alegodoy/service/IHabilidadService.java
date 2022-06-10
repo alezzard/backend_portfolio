@@ -14,5 +14,5 @@ public interface IHabilidadService {
 
     public String delete(Long id);
 
-    public Habilidad edit(Long id, String imgLogo, String porcentaje);
+    public Habilidad edit(Long id, Habilidad habilidad);
 }

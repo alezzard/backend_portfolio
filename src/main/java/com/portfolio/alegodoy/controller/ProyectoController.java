@@ -36,13 +36,10 @@ public class ProyectoController {
     }
 
     @DeleteMapping("/borrar/{id}")
-    public String borrarProyecto(@PathVariable Long id){
-        return iProyectoService.delete(id);
-    }
+    public String borrarProyecto(@PathVariable Long id){ return iProyectoService.delete(id); }
 
     @PutMapping("/editar/{id}")
-    public Proyecto editarProyecto(@PathVariable Long id,@RequestParam String nombre,@RequestParam String fecha,
-                            @RequestParam String descripcion,@RequestParam String imgProyecto,@RequestParam String link){
-        return iProyectoService.edit(id,nombre,fecha,descripcion,imgProyecto,link);
+    public Proyecto editarProyecto(@PathVariable Long id,@RequestBody Proyecto proyecto){
+        return iProyectoService.edit(id,proyecto);
     }
 }
