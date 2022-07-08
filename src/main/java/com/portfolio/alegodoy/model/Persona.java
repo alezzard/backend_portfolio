@@ -3,7 +3,6 @@ package com.portfolio.alegodoy.model;
 import com.sun.istack.NotNull;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.validation.annotation.Validated;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
@@ -18,36 +17,32 @@ public class Persona {
     private Long idPersona;
 
     @NotNull
-    @Size(min = 3, max = 45, message = "no cumple con la longitud")
-    private String nombre;
-
-    @NotNull
-    @Size(min = 3, max = 45, message = "no cumple con la longitud")
-    private String apellido;
+    @Size(min = 3, max = 90, message = "no cumple con la longitud")
+    private String fullName;
 
     @NotNull
     @Size(max = 45, message = "no cumple con la longitud")
     private String titulo;
 
     @NotNull
-    @Size(max = 150, message = "no cumple con la longitud")
+    @Size(max = 350, message = "no cumple con la longitud")
     private String descripcion;
 
     @NotNull
-    @Size(max = 250, message = "no cumple con la longitud")
+    @Size(max = 2000, message = "no cumple con la longitud")
     private String imgPerfil;
 
-    @Size(max = 150, message = "no cumple con la longitud")
+    @Size(max = 2000, message = "no cumple con la longitud")
     private String linkedin;
 
-    @Size(max = 150, message = "no cumple con la longitud")
+    @Size(max = 2000, message = "no cumple con la longitud")
     private String instagram;
 
-    @Size(max = 150, message = "no cumple con la longitud")
+    @Size(max = 2000, message = "no cumple con la longitud")
     private String github;
 
     @NotNull
-    @Size(max = 250, message = "no cumple con la longitud")
+    @Size(max = 2000, message = "no cumple con la longitud")
     private String imgBanner;
 
     @NotNull
@@ -55,7 +50,7 @@ public class Persona {
     private String email;
 
 //    @NotNull
-    @Size(min = 8, max = 20, message = "no cumple con la longitud")
+    @Size(min = 8, max = 25, message = "no cumple con la longitud")
     private String password;
 
     @Transient
@@ -74,10 +69,9 @@ public class Persona {
     public Persona() {
     }
 
-    public Persona(String nombre, String apellido, String titulo, String descripcion, String imgPerfil,
+    public Persona(String fullName, String titulo, String descripcion, String imgPerfil,
                    String linkedin, String instagram, String github, String imgBanner, String email, String password) {
-        this.nombre = nombre;
-        this.apellido = apellido;
+        this.fullName = fullName;
         this.titulo = titulo;
         this.descripcion = descripcion;
         this.imgPerfil = imgPerfil;

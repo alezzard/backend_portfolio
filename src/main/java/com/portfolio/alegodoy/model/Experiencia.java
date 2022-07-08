@@ -25,10 +25,10 @@ public class Experiencia {
     private String periodo;
 
     @NotNull
-    @Size(min = 3, max = 250, message = "no cumple con la longitud")
+    @Size(min = 3, max = 350, message = "no cumple con la longitud")
     private String descripcion;
 
-    @Size(max = 250, message = "no cumple con la longitud")
+    @Size(max = 2000, message = "no cumple con la longitud")
     private String imgLogo;
 
     @NotNull

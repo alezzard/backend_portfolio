@@ -12,7 +12,5 @@ public interface IPersonaService {
 
     public String delete(Long id);
 
-    public Persona edit(Long id,String nombre, String apellido, String titulo,
-                        String descripcion, String imgPerfil, String linkedin,
-                        String instagram, String github, String imgBanner, String email, String password);
+    public Persona edit(Long id,Persona persona);
 }

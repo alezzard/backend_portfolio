@@ -29,11 +29,11 @@ public class Proyecto {
     private String descripcion;
 
 
-    @Size(max = 250, message = "no cumple con la longitud")
+    @Size(max = 2000, message = "no cumple con la longitud")
     private String imgProyecto;
 
 
-    @Size(max = 250, message = "no cumple con la longitud")
+    @Size(max = 2000, message = "no cumple con la longitud")
     private String link;
 
     @JsonBackReference

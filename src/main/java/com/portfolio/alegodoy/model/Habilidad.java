@@ -17,7 +17,7 @@ public class Habilidad {
     private Long id;
 
     @NotNull
-    @Size(max = 250, message = "no cumple con la longitud")
+    @Size(max = 2000, message = "no cumple con la longitud")
     private String imgLogo;
 
     @NotNull @Column(columnDefinition = "INT")
